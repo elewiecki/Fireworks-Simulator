@@ -15,7 +15,7 @@ class Particle {
         this.radius = radius
         this.color = color
         this.velocity = velocity
-        this.lifeSpan = Math.random() * (100 - 50) + 50
+        this.lifeSpan = Math.random() * (130 - 50) + 50
     }
     draw() {
         c.globalAlpha = this.alpha
@@ -48,8 +48,7 @@ function animate() {
                 morters.splice(index, 1);
             }, 0);
             for (let i = 0; i < Math.random() * (100 - 50) + 50; ++i) {
-                particles.push(new Particle(morter.x, morter.y, Math.random() * 1, "red", { x: (Math.random() - 0.5) * 8, y: (Math.random() - 0.5) * 8 }))
-                    //particles.push(new Particle(morter.x, morter.y, Math.random() * 6, morter.color, { x: (Math.random() - 0.5) * 5, y: (Math.random() - 0.5) * 5 }))
+                particles.push(new Particle(morter.x, morter.y, Math.random() * 1.5, "red", { x: (Math.random() - 0.5) * 8, y: (Math.random() - 0.5) * 8 }))
             }
             let rand = Math.random();
             if (rand < 0.1) { Xplosion(morter); } else if (rand < 0.25) { circular(morter); } else if (rand < 0.5) { square(morter); } else { random(morter); }
@@ -69,7 +68,7 @@ function animate() {
 function spawnFireWorks() {
     setInterval(() => {
         const color = `hsl(${Math.random() * 360}, 50%, 50%)`;
-        morters.push(new Particle(Math.random() * (canvas.width - 300) + 150, canvas.height, 8, color, { x: (Math.random() - 0.5) * 5, y: (Math.random() - 0.5) * 5 - 10 }));
+        morters.push(new Particle(Math.random() * (canvas.width - 300) + 150, canvas.height, 8, color, { x: (Math.random() - 0.5) * 5, y: (Math.random() - 0.5) * 6 - 10 }));
     }, Math.random() * (1000 - 500) + 500)
 }
 
